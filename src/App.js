@@ -20,15 +20,7 @@ class App extends React.Component{
     }
   }
 
-  handleIncrementLike = (event) => {
-    let newCount = this.state.count+1
-    this.setState({
-      count: newCount
-    })
-    localStorage.setItem('likes', newCount)
-  }
-
-
+  
   render(){
     const { count } = this.state;
     return (
