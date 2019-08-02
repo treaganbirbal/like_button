@@ -28,7 +28,14 @@ class App extends React.Component{
     localStorage.setItem('likes', newCount)
   }
 
-  
+  handleDecrementLike = (event) => {
+    console.log('disliiked')
+    let newCount = this.state.count-1;
+    this.setState({
+      count: newCount
+    })
+    localStorage.setItem('likes', newCount)
+  }
   render(){
     const { count } = this.state;
     return (
