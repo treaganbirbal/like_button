@@ -9,43 +9,48 @@ class App extends React.Component{
     }
   }
 
-  componentDidMount = () => {
-    let numOfLikes = localStorage.getItem('likes')
-    if(!numOfLikes){
+  componentDidMount(){
+    let numLikes = localStorage.getItem("likes")
+    if(!numLikes){
       localStorage.setItem('likes', this.state.count)
     } else {
       this.setState({
-        count: Number(numOfLikes)
+        count: Number(numLikes)
       })
     }
   }
 
-  handleIncrementLike = (event) => {
-    let newCount = this.state.count+1
+  incrementLike = (event) => {
+    // let newCount = this.state.count;
+    console.log('clicked')
     this.setState({
-      count: newCount
+      count: this.state.count + 1 
     })
-    localStorage.setItem('likes', newCount)
+    localStorage.setItem('likes', this.state.count + 1)
   }
 
-  handleDecrementLike = (event) => {
-    console.log('disliiked')
-    let newCount = this.state.count-1;
+  decrementLike = (event) => {
+    // let newCount = this.state.count;
+    console.log('clicked')
     this.setState({
-      count: newCount
+      count: this.state.count - 1
     })
-    localStorage.setItem('likes', newCount)
+    localStorage.setItem('likes', this.state.count - 1)
   }
+                  
   render(){
-    const { count } = this.state;
-    return (
-      <div className="App">
+    const {count} = this.state;
+    return(
+      <div className='app'>
+        <button className='dislike' onClick={this.incrementLike}>LIKE</button>
+        <br/>
+        <button className='dislike' onClick={this.decrementLike}>DISLIKE</button>
         {count}
-        <button className='like-button' onClick={this.handleIncrementLike}>Like</button>
-        <button className='dislike-button' onClick={this.handleDecrementLike}>Dislike</button>
       </div>
     )
   }
 }
+
+
 
 export default App;
