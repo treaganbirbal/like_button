@@ -11,11 +11,12 @@ class App extends React.Component{
 
   componentDidMount(){
     let numOfLikes = localStorage.getItem("likes")
+    console.log(typeof(numOfLikes))
     if(!numOfLikes){
       localStorage.setItem("likes", this.state.count)
     } else {
       this.setState({
-        count: Number(numOfLikes)
+        count: (numOfLikes)
       })
     }
   }
